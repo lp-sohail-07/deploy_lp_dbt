@@ -1,0 +1,33 @@
+deploy_lp_dbt: # profile name
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: nb49520.ap-southeast-1
+
+      # User/password auth
+      user: lpsohail07
+      password: 12Logic@Ncl7398
+
+      role: ACCOUNTADMIN
+      database: ANALYTICS
+      warehouse: TRANSFORMING
+      # in the future you should switch this schema to use a new environment variable
+      # definitely switch this to your schema though
+      schema: dev_schema
+      threads: 4
+      client_session_keep_alive: False
+    prod:
+      type: snowflake
+      account: nb49520.ap-southeast-1
+
+      # User/password auth
+      user: lpsohail07
+      password: 12Logic@Ncl7398
+
+      role: ACCOUNTADMIN
+      database: ANALYTICS
+      warehouse: TRANSFORMING
+      schema: prod_schema
+      threads: 4
+      client_session_keep_alive: False
